@@ -1,0 +1,9 @@
+requests
+instaloader
+holehe
+pandas
+beautifulsoup4
+aiohttp
+colorama
+lxml
+duckduckgo-search

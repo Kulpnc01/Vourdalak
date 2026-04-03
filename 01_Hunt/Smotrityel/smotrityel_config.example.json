@@ -1,0 +1,13 @@
+{
+    "vourdalak_root": "FULL_PATH_TO_VOURDALAK",
+    "smotrityel_root": "FULL_PATH_TO_SMOTRITYEL",
+    "input_raw": "FULL_PATH_TO_SMOTRITYEL_RAW",
+    "supplied_input": "FULL_PATH_TO_01_HUNT_INPUT",
+    "processing_norm": "FULL_PATH_TO_NORMALIZED",
+    "output_feed": "FULL_PATH_TO_02_FEED",
+    "filter_settings": {
+        "min_psych_score": 3.0,
+        "vip_senders": ["VIP_Contact_1"],
+        "safe_keywords": ["PROJECT_CODENAME"]
+    }
+}

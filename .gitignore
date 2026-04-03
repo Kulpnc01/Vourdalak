@@ -1,0 +1,43 @@
+# Python Environment
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+vourdalak_env/
+
+# Configuration (Private - Keep your local copies)
+config.json
+subject_profile.json
+okhotnik_config.json
+smotrityel_config.json
+
+# Local Intelligence Data (Sensitive - Keep your local copies)
+01_Hunt/Input/
+01_Hunt/Okhotnik_Logs/
+01_Hunt/Smotrityel/Raw/
+01_Hunt/Smotrityel/Normalized/
+02_Feed/
+03_Devour/
+souls.json
+panopticon_vectors.json
+sms_gateway.txt
+armory_vault.json
+*.zip
+*.log
+
+# Toolchain Binaries (Managed by tool_installer.py)
+01_Hunt/Okhotnik/Toolchain/Proxy/Tor/
+01_Hunt/Okhotnik/Toolchain/Proxy/tor_bundle.tar.gz
+01_Hunt/Okhotnik/Toolchain/blackbird/
+01_Hunt/Okhotnik/Toolchain/holehe/
+01_Hunt/Okhotnik/Toolchain/instaloader/
+01_Hunt/Okhotnik/Toolchain/maigret/
+01_Hunt/Okhotnik/Toolchain/sherlock/
+01_Hunt/Okhotnik/Toolchain/twscrape/
+01_Hunt/Okhotnik/Toolchain/Install/
+
+# IDEs
+.vscode/
+.idea/
