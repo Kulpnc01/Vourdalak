@@ -7,14 +7,5 @@ aiohttp
 colorama
 lxml
 duckduckgo-search
-socid_extractor
-reportlab
-aiodns
-alive_progress
-python_socks
-aiohttp_socks
-xmind
-cloudscraper
-termcolor
-trio
-tomli
+h8mail
+ghunt
