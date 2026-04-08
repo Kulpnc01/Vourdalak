@@ -1,0 +1,9 @@
+{
+    "target_name": "Subject_Alpha",
+    "identifiers": [
+        "subject@example.com",
+        "subject_handle",
+        "+15550000000"
+    ],
+    "analysis_mode": "forensic"
+}

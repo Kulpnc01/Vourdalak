@@ -1,0 +1,19 @@
+{
+    "vourdalak_root": "FULL_PATH_TO_VOURDALAK",
+    "okhotnik_root": "FULL_PATH_TO_OKHOTNIK",
+    "toolchain_root": "FULL_PATH_TO_TOOLCHAIN",
+    "staging_root": "FULL_PATH_TO_STAGING",
+    "smotrityel_raw": "FULL_PATH_TO_SMOTRITYEL_RAW",
+    "proxy_settings": {
+        "enabled": false,
+        "http": "http://127.0.0.1:8080",
+        "https": "http://127.0.0.1:8080",
+        "use_tor": false
+    },
+    "tools": {
+        "sherlock": "sherlock/sherlock.py",
+        "maigret": "maigret/maigret.py",
+        "blackbird": "blackbird/blackbird.py",
+        "holehe": "holehe/holehe.py"
+    }
+}

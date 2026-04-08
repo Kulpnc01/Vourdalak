@@ -1,0 +1,15 @@
+{
+    "paths": {
+        "input": "Input",
+        "output": "output"
+    },
+    "filter_settings": {
+        "min_psych_score": 3.0,
+        "vip_senders": [
+            "VIP_Contact_1"
+        ],
+        "safe_keywords": [
+            "PROJECT_CODENAME"
+        ]
+    }
+}
