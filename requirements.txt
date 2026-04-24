@@ -1,0 +1,13 @@
+requests
+curl_cffi
+beautifulsoup4
+aiohttp
+colorama
+lxml
+duckduckgo-search
+customtkinter
+flask
+pydantic
+sqlite3
+networkx
+playwright
