@@ -79,10 +79,10 @@ class VourdalakGUI(ctk.CTk):
         input_group = ctk.CTkFrame(f)
         input_group.pack(fill="x", pady=10)
         
-        self.target_input = ctk.CTkEntry(input_group, placeholder_text="Target Name (e.g. John_Doe)", width=300)
+        self.target_input = ctk.CTkEntry(input_group, placeholder_text="Full Target Name (e.g. Matthew Charles Dunlop)", width=300)
         self.target_input.pack(side="left", padx=10, pady=10)
         
-        self.alias_input = ctk.CTkEntry(input_group, placeholder_text="Known Aliases / Emails", width=400)
+        self.alias_input = ctk.CTkEntry(input_group, placeholder_text="Known Aliases / Emails (comma-separated)", width=400)
         self.alias_input.pack(side="left", padx=10, pady=10)
 
         # Tool Checklist
@@ -206,7 +206,7 @@ class VourdalakGUI(ctk.CTk):
         proc = subprocess.Popen(
             [sys.executable, "01_Hunt/Okhotnik/okhotnik_core.py", target, aliases, "--tools", tool_arg],
             stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-            text=True, cwd=str(self.root_dir)
+            text=True, encoding="utf-8", cwd=str(self.root_dir)
         )
         
         for line in iter(proc.stdout.readline, ""):

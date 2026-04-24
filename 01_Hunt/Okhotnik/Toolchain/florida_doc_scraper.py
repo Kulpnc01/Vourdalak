@@ -64,5 +64,16 @@ def search_florida_doc_direct(first_name, last_name):
     return results
 
 if __name__ == "__main__":
-    hits = search_florida_doc_direct("Nicholas", "Kulpa")
+    f_name = "Nicholas"
+    l_name = "Kulpa"
+    if len(sys.argv) > 1:
+        if len(sys.argv) == 2:
+            parts = sys.argv[1].split()
+            f_name = parts[0]
+            l_name = parts[-1] if len(parts) > 1 else ""
+        else:
+            f_name = sys.argv[1]
+            l_name = sys.argv[2]
+            
+    hits = search_florida_doc_direct(f_name, l_name)
     print(json.dumps(hits, indent=2))

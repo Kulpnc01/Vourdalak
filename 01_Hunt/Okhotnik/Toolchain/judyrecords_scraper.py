@@ -40,6 +40,9 @@ def search_judyrecords(query):
         return []
 
 if __name__ == "__main__":
-    query = sys.argv[1] if len(sys.argv) > 1 else "Nicholas Kulpa"
-    hits = search_judyrecords(query)
-    print(json.dumps(hits, indent=2))
+    if len(sys.argv) > 1:
+        query = sys.argv[1]
+        hits = search_judyrecords(query)
+        print(json.dumps(hits, indent=2))
+    else:
+        print("[]")

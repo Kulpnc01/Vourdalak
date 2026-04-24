@@ -60,12 +60,14 @@ class SmotrityelEngine:
                     except Exception as e:
                         print(f" [ERROR] Could not unzip {item.name}: {e}")
 
-    def process_target(self, target_name):
-        print(f"\n--- [SMOTRITYEL/EGOWEAVER] WEAVING: {target_name} ---")
+    def process_target(self, target_id):
+        print(f"\n--- [SMOTRITYEL/EGOWEAVER] WEAVING: {target_id} ---")
         
-        target_raw = self.raw_src / target_name
-        target_supplied = self.supplied_src / target_name
-        target_output = self.feed_dest / target_name
+        # New structure: Profiles/$Target/Raw
+        target_profile_dir = self.raw_src / target_id
+        target_raw = target_profile_dir / "Raw"
+        target_supplied = self.supplied_src / target_id # Fallback for legacy/manual input
+        target_output = self.feed_dest / target_id
         os.makedirs(target_output, exist_ok=True)
         
         # Temp extract for supplied ZIPs inside target folder
@@ -76,18 +78,25 @@ class SmotrityelEngine:
         self.extract_if_needed(target_raw, temp_extract)
         self.extract_if_needed(target_supplied, temp_extract)
 
-        # 1. Subject Profile (Local to Target)
-        subject_file = target_raw / "subject_profile.json"
-        if not subject_file.exists():
-             subject_file = target_supplied / "subject_profile.json"
+        # 1. Subject Profile (Check for both .json formats)
+        profile_file = target_profile_dir / f"{target_id}.json"
+        if not profile_file.exists():
+             profile_file = target_raw / "subject_profile.json"
 
-        if subject_file.exists():
-            with open(subject_file, 'r', encoding='utf-8') as f:
-                subject = json.load(f)
+        if profile_file.exists():
+            with open(profile_file, 'r', encoding='utf-8') as f:
+                profile_data = json.load(f)
+                # Normalize identifiers for EgoWeaver filter
+                identifiers = profile_data.get('name_variations', []) + profile_data.get('aliases', []) + profile_data.get('identifiers', [])
+                subject = {
+                    "target_name": target_id,
+                    "identifiers": identifiers,
+                    "analysis_mode": "forensic"
+                }
         else:
             subject = {
-                "target_name": target_name,
-                "identifiers": [target_name.lower(), target_name.replace('_', ' ')],
+                "target_name": target_id,
+                "identifiers": [target_id.lower(), target_id.replace('_', ' ')],
                 "analysis_mode": "forensic"
             }
 

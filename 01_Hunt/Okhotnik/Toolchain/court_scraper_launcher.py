@@ -25,6 +25,15 @@ def run_court_search(target_name, county, state):
     }]
 
 if __name__ == "__main__":
-    # Integration test
-    results = run_court_search("Nicholas Kulpa", "alachua", "fl")
+    name = "Nicholas Kulpa"
+    county = "alachua"
+    state = "fl"
+    if len(sys.argv) > 1:
+        name = sys.argv[1]
+    if len(sys.argv) > 2:
+        county = sys.argv[2]
+    if len(sys.argv) > 3:
+        state = sys.argv[3]
+        
+    results = run_court_search(name, county, state)
     print(json.dumps(results, indent=2))

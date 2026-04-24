@@ -1,0 +1,15 @@
+I need to verify that we don't repeat target profiles if a second run is initiated.
+
+No module 'Playwright' found.
+
+No module 'alachua_clerk' found.
+
+No module 'court_scraper' found.
+
+judyrecords looks like it returns the same search for each of our permutations?
+
+phoneinfoga reyurns UTF-8 error.
+
+Holehe CSRF endpoint error?
+
+Margret "Connecting failure" (87.0%). and "Unsupported username format" (12.0%) = 99% failure!?

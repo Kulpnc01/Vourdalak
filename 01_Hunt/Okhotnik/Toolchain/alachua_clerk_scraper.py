@@ -28,18 +28,18 @@ def search_alachua_clerk_hardened(first_name, last_name):
                 page.wait_for_load_state("networkidle")
 
             # Step 2: The Search
-            print("  > Submitting search query by CASE NUMBER...")
-            # HAR showed: CaseNumberYear, CaseNumberType, CaseNumberSeq, CaseNumberExt
-            # 01-2024-CF-000482-A
-            page.fill('input[name="CaseNumberYear"]', '2024')
-            page.fill('input[name="CaseNumberType"]', 'CF')
-            page.fill('input[name="CaseNumberSeq"]', '482')
-            page.fill('input[name="CaseNumberExt"]', 'A')
-            
+            print(f"  > Submitting search query for {first_name} {last_name}...")
+
+            # Navigate to Name Search section if not already there
+            page.goto("https://www.alachuaclerk.org/court_records/index.cfm?section=name_search", wait_until="networkidle")
+
+            # Fill Name Fields
+            page.fill('input[name="LastName"]', last_name)
+            page.fill('input[name="FirstName"]', first_name)
+
             # Click Submit
-            page.click('input[type="submit"]')
+            page.click('input[name="namesubmit"]')
             page.wait_for_load_state("networkidle")
-            
             # Step 3: Parsing Results
             content = page.content()
             if "No records found" in content:
@@ -71,5 +71,17 @@ def search_alachua_clerk_hardened(first_name, last_name):
     return results
 
 if __name__ == "__main__":
-    hits = search_alachua_clerk_hardened("nicholas", "kulpa")
+    f_name = "Nicholas"
+    l_name = "Kulpa"
+    if len(sys.argv) > 1:
+        # Expecting either "First Last" as one arg or "First" "Last" as two
+        if len(sys.argv) == 2:
+            parts = sys.argv[1].split()
+            f_name = parts[0]
+            l_name = parts[-1] if len(parts) > 1 else ""
+        else:
+            f_name = sys.argv[1]
+            l_name = sys.argv[2]
+            
+    hits = search_alachua_clerk_hardened(f_name, l_name)
     print(json.dumps(hits, indent=2))
