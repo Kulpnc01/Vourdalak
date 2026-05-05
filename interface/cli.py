@@ -21,7 +21,9 @@ def main():
 
     if args.gui:
         print("[*] Launching Graphical Interface...")
-        # GUI import here...
+        from interface.gui.main_window import VourdalakGUI
+        app = VourdalakGUI()
+        app.mainloop()
         return
 
     if args.target:

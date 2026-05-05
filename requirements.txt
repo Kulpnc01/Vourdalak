@@ -8,6 +8,11 @@ duckduckgo-search
 customtkinter
 flask
 pydantic
-sqlite3
 networkx
 playwright
+git+https://github.com/sherlock-project/sherlock.git
+git+https://github.com/soxoj/maigret.git
+git+https://github.com/megadose/holehe.git
+git+https://github.com/vladkens/twscrape.git
+git+https://github.com/Instaloader/instaloader.git
+git+https://github.com/p1ngul1n0/blackbird.git
